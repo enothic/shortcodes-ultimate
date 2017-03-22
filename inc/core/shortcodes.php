@@ -1454,7 +1454,7 @@ class Su_Shortcodes {
 		// Get the post
 		$post = get_post( $atts['post_id'] );
 		// Set default value if meta is empty
-		$post = ( empty( $post ) || empty( $post->$atts['field'] ) ) ? $atts['default'] : $post->$atts['field'];
+		$post = ( empty( $post ) || empty( $post->{$atts['field']} ) ) ? $atts['default'] : $post->{$atts['field']};
 		// Apply cutom filter
 		if ( $atts['filter'] && function_exists( $atts['filter'] ) ) $post = call_user_func( $atts['filter'], $post );
 		// Return result
